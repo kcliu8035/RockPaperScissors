@@ -1,6 +1,5 @@
 const choices = ["rock", "paper", "scissors"];
-const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
+
 
 function getComputerChoice() {
     let result = choices[Math.floor(Math.random() * choices.length)]
@@ -42,11 +41,14 @@ function playRound(playerSelectionA, computerSelection) {
     } else {
         console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nIt's a tie!`);
     }
+    
 }
 
 function game() {
     
     for (i = 1; i <= 5; i++) {
+        const computerSelection = getComputerChoice();
+        const playerSelection = getPlayerChoice();
         console.log(`ROUND ${i}`);
         playRound(playerSelection, computerSelection);   
     }

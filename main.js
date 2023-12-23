@@ -1,4 +1,6 @@
 const choices = ["rock", "paper", "scissors"];
+const computerSelection = getComputerChoice();
+const playerSelection = getPlayerChoice();
 
 function getComputerChoice() {
     let result = choices[Math.floor(Math.random() * choices.length)]
@@ -6,32 +8,73 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt('Pick a choice');
+    const playerChoice = prompt('Pick a choice');
     const resultLower = playerChoice.toLowerCase();
     if (resultLower === 'rock' || resultLower === 'scissors' || resultLower === 'paper') {
-        console.log(resultLower);
         return resultLower;
     } else {
         console.log ('Pick either "rock", "paper", or "scissors".')
     }
 }
 
-function playRound(playerSelectionA, computerSelection) {
-    const playerSelection = playerSelectionA.toLowerCase(); 
-
+function gameResult(playerSelection, computerSelection) {
     if ((playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "rock")) {
-            console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n\nYou Win!`);
+                    return 'Win';
         } else if ((playerSelection === "scissors" && computerSelection === "rock") ||
-                    (playerSelection == "paper" && computerSelection === "scissors") ||
-                    (playerSelection === "rock" && computerSelection === "paper")) {
-                        console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n\nYou Lose!`);
+                (playerSelection == "paper" && computerSelection === "scissors") ||
+                (playerSelection === "rock" && computerSelection === "paper")) {
+                    return 'Lose';
         } else {
-            console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n\nIt's a tie!`);
+                    return 'Tie';
         }
 }
 
-// const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
+function playRound(playerSelectionA, computerSelection) {
+    const playerSelection = playerSelectionA.toLowerCase(); 
+    let result = gameResult(playerSelection, computerSelection);
+    
+    if (result === 'Win') {
+        console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nYou Win!`);
+    } else if (result === 'Lose') {
+        console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nYou Lose!`);
+    } else {
+        console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nIt's a tie!`);
+    }
+}
+
+function game() {
+    
+    for (i = 1; i <= 5; i++) {
+        console.log(`ROUND ${i}`);
+        playRound(playerSelection, computerSelection);   
+    }
+    
+}
+
+game();
+
+
+
+
+
+// function playRound(playerSelectionA, computerSelection) {
+//     const playerSelection = playerSelectionA.toLowerCase(); 
+
+//     if ((playerSelection === "rock" && computerSelection === "scissors") ||
+//         (playerSelection === "scissors" && computerSelection === "paper") ||
+//         (playerSelection === "paper" && computerSelection === "rock")) {
+//             console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nYou Win!`);
+//         } else if ((playerSelection === "scissors" && computerSelection === "rock") ||
+//                     (playerSelection == "paper" && computerSelection === "scissors") ||
+//                     (playerSelection === "rock" && computerSelection === "paper")) {
+//                         console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nYou Lose!`);
+//         } else {
+//             console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nIt's a tie!`);
+//         }
+// }
+
+
+
 

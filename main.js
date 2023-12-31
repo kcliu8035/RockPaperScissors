@@ -44,19 +44,21 @@ function playRound(playerSelectionA, computerSelection) {
     
 }
 
-function game() {
+// function game() {
     
-    for (i = 1; i <= 5; i++) {
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice();
-        console.log(`ROUND ${i}`);
-        playRound(playerSelection, computerSelection);   
-    }
+//     for (i = 1; i <= 5; i++) {
+//         const computerSelection = getComputerChoice();
+//         const playerSelection = getPlayerChoice();
+//         console.log(`ROUND ${i}`);
+//         playRound(playerSelection, computerSelection);   
+//     }
     
-}
+// }
 
-game();
+// const computerSelection = getComputerChoice();
+// const playerSelection = getPlayerChoice();
 
+// playRound(playerSelection, computerSelection);
 
 
 
@@ -76,6 +78,22 @@ game();
 //             console.log (`Player: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}\nComputer: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} \n--------\nIt's a tie!`);
 //         }
 // }
+
+
+
+
+//################# RPS UI ################
+
+const rockChoice = document.getElementById('rockChoice');
+const paperChoice = document.getElementById('paperChoice');
+const scissorsChoice = document.getElementById('scissorsChoice');
+
+rockChoice.addEventListener('click', () => {
+    playRound();
+})
+
+
+
 
 
 

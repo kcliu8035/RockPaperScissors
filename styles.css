@@ -1,0 +1,30 @@
+body {
+    /* background-color: aquamarine; */
+}
+
+.main {
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    margin-top: 180px;
+}
+
+img {
+    height: 170px;
+}
+
+.result {
+    margin-top: 200px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+}
+

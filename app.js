@@ -5,21 +5,22 @@ const scissorsChoice = document.getElementById('scissorsChoice');
 const playerScore = document.getElementById('playerScore');
 const computerScore = document.getElementById('computerScore');
 const computerSelection = getComputerChoice();
+const resultOutput = document.getElementById('output');
 const reset = document.getElementById('resetBTN');
 let player_score = 0;
 let computer_score = 0;
 
 
 rockChoice.addEventListener('click', () => {
-    playGame('rock', computerSelection);
+    playGame('rock', getComputerChoice());
 })
 
 paperChoice.addEventListener('click', () => {
-    playGame('paper', computerSelection);
+    playGame('paper', getComputerChoice());
 })
 
 scissorsChoice.addEventListener('click', () => {
-    playGame('scissors', computerSelection);
+    playGame('scissors', getComputerChoice());
 })
 
 function getComputerChoice() {
@@ -43,25 +44,30 @@ function checkWinner(playerSelection, computerSelection) {
 }
 
 function playGame(playerSelection, computerSelection) {
-    let result = checkWinner();
+    let result = checkWinner(playerSelection, computerSelection);
     if (result === 'Win') {
         player_score++;
-        console.log('winner');
+        playerScore.textContent = `${player_score}`;
+        resultOutput.textContent = `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}. You win!`
+        // console.log(`Win: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
     } else if (result === 'Lose') {
         computer_score++;
-        console.log('lose');
+        computerScore.textContent = `${computer_score}`;
+        resultOutput.textContent = `${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection}. You lose!`
+        // console.log(`Lose: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
     } else {
-        // console.log('tie');
-        console.log(result);
+        resultOutput.textContent = `Player and Computer both chose ${playerSelection}. It's a tie!`
+        console.log(`Tie: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
     }
 }
 
-function keepScore() {
 
-}
+
 
 reset.addEventListener('click', () => {
     player_score = 0;
     computer_score = 0;
-    console.log('click');
+    playerScore.textContent = `${player_score}`;
+    computerScore.textContent = `${computer_score}`;
+    resultOutput.textContent = '';
 })

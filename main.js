@@ -84,13 +84,6 @@ function playRound(playerSelectionA, computerSelection) {
 
 //################# RPS UI ################
 
-const rockChoice = document.getElementById('rockChoice');
-const paperChoice = document.getElementById('paperChoice');
-const scissorsChoice = document.getElementById('scissorsChoice');
-
-rockChoice.addEventListener('click', () => {
-    playRound();
-})
 
 
 

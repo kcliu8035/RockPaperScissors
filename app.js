@@ -9,6 +9,11 @@ const resultOutput = document.getElementById('output');
 const reset = document.getElementById('resetBTN');
 let player_score = 0;
 let computer_score = 0;
+const playerImage = document.getElementById('playerImage');
+
+//WINNING IMAGES
+rockElement = document.createElement('img'); 
+rockElement.src = 'images/Rock.png'; 
 
 
 rockChoice.addEventListener('click', () => {
@@ -48,6 +53,7 @@ function playGame(playerSelection, computerSelection) {
     if (result === 'Win') {
         player_score++;
         playerScore.textContent = `${player_score}`;
+        playerImage.appendChild(rockElement);
         resultOutput.textContent = `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}. You win!`
         // console.log(`Win: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
     } else if (result === 'Lose') {

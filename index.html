@@ -11,7 +11,24 @@
 <body>
     <div class="main">
 
-        <h1>Rock, Paper, Scissors, go, 2023 Edition!</h1>
+        <h1>Rock, Paper, Scissors, go!</h1>
+
+        <div class="result">
+            <div class="score">
+                <div id="playerScoreMain">
+                    <p class="scoreTitle" id="playerTitle">Player Score</p>
+                    
+                    <p id="playerScore">0</p>
+                    
+                </div>
+                <span id="divider">  </span>
+                <div id="computerScoreMain"> 
+                    <p class="scoreTitle" id="computerTitle">Computer Score</p>
+                     <p id="computerScore">0</p>
+                </div>
+            </div>
+          
+        </div>
 
         <div class="choices">
             <div class="rock">
@@ -27,14 +44,9 @@
                 <p>SCISSORS</p>
             </div>
         </div>
-    
-        <div class="result">
-            <div class="score">
-                <div id="playerScore"> 0 </div>
-                <span> - </span>
-                <div id="computerScore"> 0 </div>
-            </div>
-            <div id="output"></div>
+
+        <div class="output">
+            <div id="output"><p id="playerImage"></p></div>
             <button id="resetBTN">Reset</button>
         </div>
 

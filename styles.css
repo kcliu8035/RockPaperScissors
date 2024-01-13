@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&family=Permanent+Marker&family=Rubik+Broken+Fax&family=Rubik+Scribble&family=Seymour+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Overlock+SC&family=Permanent+Marker&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Doodle+Triangles&family=Rubik+Maps&family=Rubik+Scribble&family=Seymour+One&display=swap');
 
 /* NOTES:
 - Find out how to make images pop up in DIVIDER class from both players */
@@ -10,6 +9,38 @@ body {
 
 .main {
     text-align: center;
+    border: 2px solid black;
+}
+
+.header {
+   /* background-color: thistle; */
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.title {
+    font-family: 'Permanent Marker', 'Rubik Doodle Triangles', 'Lemon', 'Rubik Doodle Shadow';
+    color: darkcyan;
+    font-size: 50px;
+}
+
+#rockTitle {
+    font-family: 'Rubik Doodle Shadow';
+}
+
+#paperTitle {
+    margin-left: 10px;
+    color: red;
+    
+}
+
+#scissorsTitle {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Lemon';
+    color: peachpuff;
 }
 
 .choices {
@@ -21,9 +52,6 @@ body {
     margin-bottom: 70px;
 }
 
-img {
-    height: 170px;
-}
 
 .result {
     margin-top: 50px;
@@ -35,13 +63,13 @@ img {
 
 .score {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 50px;
     font-family:  'Seymour One', 'Rubik Broken Fax';
     background-color: linen;
     border: 2px solid black;
     border-radius: 25px;
-    width: 700px;
+    width: 900px;
     height: 200px;
 }
 
@@ -64,6 +92,104 @@ img {
 }
 
 #output {
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin-top: 90px;
 }
 
+
+img {
+    height: 170px;
+    transition: transform 0.02s ease-in-out 0s;
+}
+
+img:hover {
+    transform: rotate(-90deg);
+}
+
+.stable {
+    position: relative;
+}
+
+.mover {
+    position: absolute;
+}
+
+/* PLAYER ANIMATIONS */
+/* ROCK */
+@keyframes rockMovePlayer {
+    from {
+        transform: translateX(0) translateX(0)
+    }
+
+    to {
+        transform: translateX(180px) translateY(-230px)
+    }
+}
+
+.rockMovePlayer {
+    animation: rockMovePlayer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+}
+
+
+/* PAPER */
+/* @keyframes paperMovePlayer {
+    from {
+        transform: translateX(0) translateY(0)
+    }
+
+    to {
+        transform: translateX(-50px) translateY(-230px);
+    }
+}
+
+.paperMovePlayer {
+    animation: paperMovePlayer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+} */ */
+
+
+@keyframes scissorsMove {
+    from {
+
+    }
+
+    to {
+        
+    }
+}
+
+/* COMPUTER ANIMATION */
+
+/* ROCK */
+/* @keyframes rockMoveComputer {
+    from {
+        transform: translateX(0) translateX(0)
+    }
+
+    to {
+        transform: translateX(310px) translateY(-230px)
+    }
+}
+
+.rockMoveComputer {
+    animation: rockMoveComputer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+} */
+
+
+/* PAPER */
+/* @keyframes paperMoveComputer {
+    from {
+        transform: translateX(0) translateY(0)
+    }
+
+    to {
+        transform: translateX(40px) translateY(-230px);
+    }
+}
+
+.paperMoveComputer {
+    animation: paperMoveComputer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+} */ */

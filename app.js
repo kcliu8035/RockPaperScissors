@@ -1,4 +1,5 @@
 const choices = ["rock", "paper", "scissors"];
+const body = document.querySelector('body');
 const rockChoice = document.getElementById('rockChoice');
 const paperChoice = document.getElementById('paperChoice');
 const scissorsChoice = document.getElementById('scissorsChoice');
@@ -11,13 +12,16 @@ let player_score = 0;
 let computer_score = 0;
 const playerImage = document.getElementById('playerImage');
 
-//WINNING IMAGES
-rockElement = document.createElement('img'); 
-rockElement.src = 'images/Rock.png'; 
+
+//SHOWING CHOICES
+const rockPlayer = document.querySelector('.rockPlayer')
 
 
 rockChoice.addEventListener('click', () => {
+    // rockPlayer.classList.remove('rockMovePlayer');
     playGame('rock', getComputerChoice());
+    rockPlayer.style.display = "block";
+    rockPlayer.classList.add('rockMovePlayer');
 })
 
 paperChoice.addEventListener('click', () => {
@@ -53,17 +57,13 @@ function playGame(playerSelection, computerSelection) {
     if (result === 'Win') {
         player_score++;
         playerScore.textContent = `${player_score}`;
-        playerImage.appendChild(rockElement);
-        resultOutput.textContent = `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}. You win!`
-        // console.log(`Win: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
+        resultOutput.textContent = `Winner!`
     } else if (result === 'Lose') {
         computer_score++;
         computerScore.textContent = `${computer_score}`;
-        resultOutput.textContent = `${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection}. You lose!`
-        // console.log(`Lose: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
+        resultOutput.textContent = `Loser!`
     } else {
-        resultOutput.textContent = `Player and Computer both chose ${playerSelection}. It's a tie!`
-        console.log(`Tie: ${playerSelection} + ${computerSelection} ${result} PS:${player_score} CS:${computer_score}`);
+        resultOutput.textContent = `Tie!`
     }
 }
 
@@ -77,3 +77,4 @@ reset.addEventListener('click', () => {
     computerScore.textContent = `${computer_score}`;
     resultOutput.textContent = '';
 })
+

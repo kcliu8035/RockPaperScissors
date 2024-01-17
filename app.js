@@ -15,10 +15,28 @@ const playerImage = document.getElementById('playerImage');
 
 //SHOWING CHOICES
 const rockPlayer = document.querySelector('.rockPlayer')
+const paperPlayer = document.querySelector('.paperPlayer')
+const scissorsPlayer = document.querySelector('.scissorsPlayer')
 
+const rockComputer = document.querySelector('.rockComputer');
+const paperComputer = document.querySelector('.paperComputer');
+const scissorsComputer = document.querySelector('.scissorsComputer');
+
+
+function computerMove() {
+    if(getComputerChoice() === 'rock') {
+        rockComputer.style.display = "block";
+        rockComputer.classList.add('rockMoveComputer');
+    } else if(getComputerChoice() === 'paper') {
+        paperComputer.style.display = "block";
+        paperComputer.classList.add('paperMoveComputer');
+    } else if(getComputerChoice() === 'scissors') {
+        scissorsComputer.style.display = "block";
+        scissorsComputer.classList.add('scissorsMoveComputer');
+    }
+}
 
 rockChoice.addEventListener('click', () => {
-    // rockPlayer.classList.remove('rockMovePlayer');
     playGame('rock', getComputerChoice());
     rockPlayer.style.display = "block";
     rockPlayer.classList.add('rockMovePlayer');
@@ -26,10 +44,14 @@ rockChoice.addEventListener('click', () => {
 
 paperChoice.addEventListener('click', () => {
     playGame('paper', getComputerChoice());
+    paperPlayer.style.display = "block";
+    paperPlayer.classList.add('paperMovePlayer');
 })
 
 scissorsChoice.addEventListener('click', () => {
     playGame('scissors', getComputerChoice());
+    scissorsPlayer.style.display = "block";
+    scissorsPlayer.classList.add('scissorsMovePlayer');
 })
 
 function getComputerChoice() {
@@ -53,6 +75,9 @@ function checkWinner(playerSelection, computerSelection) {
 }
 
 function playGame(playerSelection, computerSelection) {
+    reset.style.display = "inline";
+    clearElements();
+    computerMove();
     let result = checkWinner(playerSelection, computerSelection);
     if (result === 'Win') {
         player_score++;
@@ -68,9 +93,33 @@ function playGame(playerSelection, computerSelection) {
 }
 
 
+function clearElements() {
+    const elements = document.querySelectorAll('*');
+    elements.forEach((element) => {
+        // PLAYER SELECTION
+        rockPlayer.style.display = "none";
+        element.classList.remove('rockMovePlayer');
 
+        paperPlayer.style.display = "none";
+        element.classList.remove('paperMovePlayer');
+
+        scissorsPlayer.style.display = "none";
+        element.classList.remove('scissorsMovePlayer');
+
+        // COMPUTER SELECTION
+        rockComputer.style.display = "none";
+        rockComputer.classList.remove('rockMoveComputer');
+
+        paperComputer.style.display = "none";
+        paperComputer.classList.remove('paperMoveComputer');
+
+        scissorsComputer.style.display = "none";
+        scissorsComputer.classList.remove('scissorsMoveComputer');
+    });    
+}
 
 reset.addEventListener('click', () => {
+    clearElements();
     player_score = 0;
     computer_score = 0;
     playerScore.textContent = `${player_score}`;
@@ -78,3 +127,7 @@ reset.addEventListener('click', () => {
     resultOutput.textContent = '';
 })
 
+
+//NOTES:
+// - Need to figure out how to remove classList properly so image disappears when choice re-clicked.
+// - Need to ensure classes are removed as well when reset button is clicked.

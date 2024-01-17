@@ -52,6 +52,9 @@ body {
     margin-bottom: 70px;
 }
 
+#resetBTN {
+    display: none;
+}
 
 .result {
     margin-top: 50px;
@@ -69,7 +72,7 @@ body {
     background-color: linen;
     border: 2px solid black;
     border-radius: 25px;
-    width: 900px;
+    width: 1000px;
     height: 200px;
 }
 
@@ -122,7 +125,7 @@ img:hover {
     }
 
     to {
-        transform: translateX(180px) translateY(-230px)
+        transform: translateX(80px) translateY(-230px)
     }
 }
 
@@ -133,63 +136,87 @@ img:hover {
 
 
 /* PAPER */
-/* @keyframes paperMovePlayer {
+@keyframes paperMovePlayer {
     from {
         transform: translateX(0) translateY(0)
     }
 
     to {
-        transform: translateX(-50px) translateY(-230px);
+        transform: translateX(-180px) translateY(-230px);
     }
 }
 
-.paperMovePlayer {
+.paperPlayer {
     animation: paperMovePlayer 0.2s ease-in 0s 1 normal both;
     transition: 1s;
-} */ */
+}
 
-
-@keyframes scissorsMove {
+/* SCISSORS */
+@keyframes scissorsMovePlayer {
     from {
-
+        transform: translateX(0) translateY(0);
     }
 
     to {
-        
+        transform: translateX(-440px) translateY(-230px);
     }
 }
+
+.scissorsPlayer {
+    animation: scissorsMovePlayer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+}
+
+
+
 
 /* COMPUTER ANIMATION */
 
 /* ROCK */
-/* @keyframes rockMoveComputer {
+@keyframes rockMoveComputer {
     from {
         transform: translateX(0) translateX(0)
     }
 
     to {
-        transform: translateX(310px) translateY(-230px)
+        transform: translateX(410px) translateY(-230px)
     }
 }
 
 .rockMoveComputer {
     animation: rockMoveComputer 0.2s ease-in 0s 1 normal both;
     transition: 1s;
-} */
+}
 
 
 /* PAPER */
-/* @keyframes paperMoveComputer {
+@keyframes paperMoveComputer {
     from {
         transform: translateX(0) translateY(0)
     }
 
     to {
-        transform: translateX(40px) translateY(-230px);
+        transform: translateX(150px) translateY(-230px);
     }
 }
 
-.paperMoveComputer {
+.paperComputer {
     animation: paperMoveComputer 0.2s ease-in 0s 1 normal both;
     transition: 1s;
-} */ */
+}
+
+/* SCISSORS */
+@keyframes scissorsMoveComputer {
+    from {
+        transform: translateX(0) translateY(0);
+    }
+
+    to {
+        transform: translateX(-100px) translateY(-230px);
+    }
+}
+
+.scissorsComputer {
+    animation: scissorsMoveComputer 0.2s ease-in 0s 1 normal both;
+    transition: 1s;
+}

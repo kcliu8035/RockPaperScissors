@@ -56,6 +56,16 @@ body {
     display: none;
 }
 
+/* #scoreBox {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-top: 32px;
+    margin-right: 115px;
+    height: 140px;  
+    width: 140px;
+} */
+
 .result {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -97,6 +107,12 @@ body {
 #output {
     font-size: 1.5rem;
     margin-top: 90px;
+    width: 5px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+   
 }
 
 

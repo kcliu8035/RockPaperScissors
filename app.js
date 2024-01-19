@@ -22,20 +22,6 @@ const rockComputer = document.querySelector('.rockComputer');
 const paperComputer = document.querySelector('.paperComputer');
 const scissorsComputer = document.querySelector('.scissorsComputer');
 
-
-function computerMove() {
-    if(getComputerChoice() === 'rock') {
-        rockComputer.style.display = "block";
-        rockComputer.classList.add('rockMoveComputer');
-    } else if(getComputerChoice() === 'paper') {
-        paperComputer.style.display = "block";
-        paperComputer.classList.add('paperMoveComputer');
-    } else if(getComputerChoice() === 'scissors') {
-        scissorsComputer.style.display = "block";
-        scissorsComputer.classList.add('scissorsMoveComputer');
-    }
-}
-
 rockChoice.addEventListener('click', () => {
     playGame('rock', getComputerChoice());
     rockPlayer.style.display = "block";
@@ -77,18 +63,32 @@ function checkWinner(playerSelection, computerSelection) {
 function playGame(playerSelection, computerSelection) {
     reset.style.display = "inline";
     clearElements();
-    computerMove();
     let result = checkWinner(playerSelection, computerSelection);
     if (result === 'Win') {
         player_score++;
         playerScore.textContent = `${player_score}`;
-        resultOutput.textContent = `Winner!`
+        resultOutput.textContent = `Winner!`;
+        resultOutput.style.color = "green";
     } else if (result === 'Lose') {
         computer_score++;
         computerScore.textContent = `${computer_score}`;
         resultOutput.textContent = `Loser!`
+        resultOutput.style.color = "red";
     } else {
         resultOutput.textContent = `Tie!`
+        resultOutput.style.color = "#666699";
+    }
+
+    //Computer choice display
+    if(computerSelection === 'rock') {
+        rockComputer.style.display = "block";
+        rockComputer.classList.add('rockMoveComputer');
+    } else if(computerSelection === 'paper') {
+        paperComputer.style.display = "block";
+        paperComputer.classList.add('paperMoveComputer');
+    } else if(computerSelection === 'scissors') {
+        scissorsComputer.style.display = "block";
+        scissorsComputer.classList.add('scissorsMoveComputer');
     }
 }
 
@@ -130,4 +130,6 @@ reset.addEventListener('click', () => {
 
 //NOTES:
 // - Need to figure out how to remove classList properly so image disappears when choice re-clicked.
-// - Need to ensure classes are removed as well when reset button is clicked.
+// - Need to stop elements from moving in score section when text output changes
+// - (DONE) Need to ensure classes are removed as well when reset button is clicked.
+// - (DONE) Two computer choices are created. Need to have only one computer choice defined.
